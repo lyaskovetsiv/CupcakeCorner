@@ -10,9 +10,13 @@ import SwiftUI
 struct AddressView: View {
 	@ObservedObject private var order: Order
 
+	// MARK: - Init
+
 	init(order: Order) {
 		self.order = order
 	}
+
+	// MARK: - UI
 
 	var body: some View {
 		Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)

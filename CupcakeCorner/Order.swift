@@ -22,4 +22,9 @@ final class Order: ObservableObject {
 	}
 	@Published var extraFrosting: Bool = false
 	@Published var addSprinkles: Bool = false
+
+	@Published var name = ""
+	@Published var streetAdress = ""
+	@Published var city = ""
+	@Published var zip = ""
 }
