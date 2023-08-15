@@ -13,6 +13,8 @@ struct CheckoutView: View {
 	@ObservedObject private var order: Order
 	@State private var confirmationMessage = ""
 	@State private var showingConfirmation: Bool = false
+	@State private var errorMessage = ""
+	@State private var showingError: Bool = false
 
 
 	// MARK: - Init
@@ -56,24 +58,33 @@ struct CheckoutView: View {
 		} message: {
 			Text(confirmationMessage)
 		}
+		.alert("Error", isPresented: $showingError) {
+			Button("OK!") {
+
+			}
+		} message: {
+			Text(errorMessage)
+		}
 	}
 
 	// MARK: - Methods
 
 	private func placeOrder() async {
 		guard let encoded = try? JSONEncoder().encode(order) else {
-			print("Failured to encode order")
+			errorMessage = "Failured to encode order"
+			showingError = true
 			return
 		}
 
 		guard let url = URL(string: "https://reqres.in/api/cupcakes") else {
-			print("Failured to get url from string")
+			errorMessage = "Failured to get url from string"
+			showingError = true
 			return
 		}
 
 		var request = URLRequest(url: url)
 		request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-		request.httpMethod = "POST"
+		// request.httpMethod = "POST"
 
 		do {
 			let (data, _) = try await URLSession.shared.upload(for: request, from: encoded)
@@ -83,7 +94,8 @@ struct CheckoutView: View {
 			showingConfirmation = true
 
 		} catch {
-			print(error.localizedDescription)
+			errorMessage = "\(error.localizedDescription)"
+			showingError = true
 		}
 	}
 }
