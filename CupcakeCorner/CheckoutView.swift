@@ -21,23 +21,26 @@ struct CheckoutView: View {
 	// MARK: - UI
 
 	var body: some View {
-		Form {
-			Section {
-				TextField("Name", text: $order.name)
-				TextField("Street address", text: $order.streetAdress)
-				TextField("City", text: $order.city)
-				TextField("Zip", text: $order.zip)
-			}
-
-			Section {
-				NavigationLink {
-					CheckoutView(order: order)
-				} label: {
-					Text("Check out")
+		ScrollView {
+			VStack {
+				AsyncImage(url: URL(string: "https://hws.dev/img/cupcakes@3x.jpg"), scale: 3) { image in
+					image
+						.resizable()
+						.scaledToFit()
+				} placeholder: {
+					ProgressView()
 				}
+				.frame(height: 233)
+
+				Text("Your total cost: \(order.cost, format: .currency(code: "USD"))")
+					.font(.title)
+
+				Button("Place order", action: {})
+					.padding()
+
 			}
 		}
-		.navigationTitle("Delivery details")
+		.navigationTitle("Checkout")
 		.navigationBarTitleDisplayMode(.inline)
 	}
 }
@@ -46,8 +49,7 @@ struct CheckoutView: View {
 
 struct CheckoutView_Previews: PreviewProvider {
 	static var previews: some View {
-		NavigationView {
-			CheckoutView(order: Order())
-		}
+		CheckoutView(order: Order())
 	}
 }
+
