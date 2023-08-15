@@ -57,6 +57,7 @@
 		A00371022A8A772300DE1E8E /* CupcakeCorner */ = {
 			isa = PBXGroup;
 			children = (
+				A00371032A8A772300DE1E8E /* CupcakeCornerApp.swift */,
 				A00371322A8BBACA00DE1E8E /* Screens */,
 				A00371312A8BBAC500DE1E8E /* Model */,
 				A00371332A8BBAD100DE1E8E /* Resources */,
@@ -84,7 +85,6 @@
 		A00371322A8BBACA00DE1E8E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				A00371032A8A772300DE1E8E /* CupcakeCornerApp.swift */,
 				A00371052A8A772300DE1E8E /* CakeOrderView.swift */,
 				A003712D2A8BB13200DE1E8E /* AddressView.swift */,
 				A003712F2A8BB3BF00DE1E8E /* CheckoutView.swift */,
