@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A00371042A8A772300DE1E8E /* CupcakeCornerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00371032A8A772300DE1E8E /* CupcakeCornerApp.swift */; };
-		A00371062A8A772300DE1E8E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00371052A8A772300DE1E8E /* ContentView.swift */; };
+		A00371062A8A772300DE1E8E /* CakeOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00371052A8A772300DE1E8E /* CakeOrderView.swift */; };
 		A00371082A8A772300DE1E8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00371072A8A772300DE1E8E /* Assets.xcassets */; };
 		A003710B2A8A772300DE1E8E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A003710A2A8A772300DE1E8E /* Preview Assets.xcassets */; };
 		A003712C2A8BABE300DE1E8E /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = A003712B2A8BABE300DE1E8E /* Order.swift */; };
@@ -19,7 +19,7 @@
 /* Begin PBXFileReference section */
 		A00371002A8A772300DE1E8E /* CupcakeCorner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CupcakeCorner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A00371032A8A772300DE1E8E /* CupcakeCornerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CupcakeCornerApp.swift; sourceTree = "<group>"; };
-		A00371052A8A772300DE1E8E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A00371052A8A772300DE1E8E /* CakeOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CakeOrderView.swift; sourceTree = "<group>"; };
 		A00371072A8A772300DE1E8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A003710A2A8A772300DE1E8E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A003712B2A8BABE300DE1E8E /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
@@ -57,12 +57,9 @@
 		A00371022A8A772300DE1E8E /* CupcakeCorner */ = {
 			isa = PBXGroup;
 			children = (
-				A00371032A8A772300DE1E8E /* CupcakeCornerApp.swift */,
-				A00371052A8A772300DE1E8E /* ContentView.swift */,
-				A003712D2A8BB13200DE1E8E /* AddressView.swift */,
-				A003712F2A8BB3BF00DE1E8E /* CheckoutView.swift */,
-				A003712B2A8BABE300DE1E8E /* Order.swift */,
-				A00371072A8A772300DE1E8E /* Assets.xcassets */,
+				A00371322A8BBACA00DE1E8E /* Screens */,
+				A00371312A8BBAC500DE1E8E /* Model */,
+				A00371332A8BBAD100DE1E8E /* Resources */,
 				A00371092A8A772300DE1E8E /* Preview Content */,
 			);
 			path = CupcakeCorner;
@@ -74,6 +71,33 @@
 				A003710A2A8A772300DE1E8E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A00371312A8BBAC500DE1E8E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A003712B2A8BABE300DE1E8E /* Order.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A00371322A8BBACA00DE1E8E /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				A00371032A8A772300DE1E8E /* CupcakeCornerApp.swift */,
+				A00371052A8A772300DE1E8E /* CakeOrderView.swift */,
+				A003712D2A8BB13200DE1E8E /* AddressView.swift */,
+				A003712F2A8BB3BF00DE1E8E /* CheckoutView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		A00371332A8BBAD100DE1E8E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A00371072A8A772300DE1E8E /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,7 +173,7 @@
 				A003712C2A8BABE300DE1E8E /* Order.swift in Sources */,
 				A003712E2A8BB13200DE1E8E /* AddressView.swift in Sources */,
 				A00371302A8BB3BF00DE1E8E /* CheckoutView.swift in Sources */,
-				A00371062A8A772300DE1E8E /* ContentView.swift in Sources */,
+				A00371062A8A772300DE1E8E /* CakeOrderView.swift in Sources */,
 				A00371042A8A772300DE1E8E /* CupcakeCornerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
