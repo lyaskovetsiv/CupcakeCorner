@@ -10,16 +10,15 @@ import SwiftUI
 struct CheckoutView: View {
 	// MARK: - States&Properities
 
-	@ObservedObject private var order: Order
+	@ObservedObject private var order: OrderWrapper
 	@State private var confirmationMessage = ""
 	@State private var showingConfirmation: Bool = false
 	@State private var errorMessage = ""
 	@State private var showingError: Bool = false
 
-
 	// MARK: - Init
 
-	init(order: Order) {
+	init(order: OrderWrapper) {
 		self.order = order
 	}
 
@@ -37,7 +36,7 @@ struct CheckoutView: View {
 				}
 				.frame(height: 233)
 
-				Text("Your total cost: \(order.cost, format: .currency(code: "USD"))")
+				Text("Your total cost: \(order.value.cost, format: .currency(code: "USD"))")
 					.font(.title)
 
 				Button("Place order") {
@@ -84,13 +83,13 @@ struct CheckoutView: View {
 
 		var request = URLRequest(url: url)
 		request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-		// request.httpMethod = "POST"
+		request.httpMethod = "POST"
 
 		do {
 			let (data, _) = try await URLSession.shared.upload(for: request, from: encoded)
 
-			let decodedOrder = try JSONDecoder().decode(Order.self, from: data)
-			confirmationMessage = "Your order for \(decodedOrder.quantity)x\(Order.types[decodedOrder.type].lowercased()) cupcakes on its way!"
+			let decodedOrder = try JSONDecoder().decode(OrderWrapper.self, from: data)
+			confirmationMessage = "Your order for \(decodedOrder.value.quantity)x\(Order.types[decodedOrder.value.type].lowercased()) cupcakes on its way!"
 			showingConfirmation = true
 
 		} catch {
@@ -104,7 +103,6 @@ struct CheckoutView: View {
 
 struct CheckoutView_Previews: PreviewProvider {
 	static var previews: some View {
-		CheckoutView(order: Order())
+		CheckoutView(order: OrderWrapper())
 	}
 }
-
